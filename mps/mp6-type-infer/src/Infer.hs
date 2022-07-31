@@ -4,23 +4,45 @@ import Common
 
 import Control.Monad.Writer (listen)
 import Control.Monad.Except (throwError)
-import Data.Map.Strict as H (Map, insert, lookup, empty, fromList, singleton)
+import Data.Map.Strict as H (Map, insert, lookup, empty, fromList, singleton, union)
 
   {- question 1: fresh instance function -}
 
 freshInst :: PolyTy -> Infer MonoTy
-freshInst (Forall qVars tau) = undefined
+freshInst (Forall qVars tau) = 
+  let aux :: [VarId] -> Infer Substitution
+      aux [] = return $ fromList []
+      aux (v:vs) = 
+        do monotype <- freshTau
+           substs <- aux vs
+           return $ insert v monotype substs
+  in do subst <- aux qVars
+        return $ apply subst tau
 
   {- question 2: occurs check -}
 
 occurs :: VarId -> MonoTy -> Bool
-occurs i tau = undefined
+occurs i tau = 
+  let freevars = freeVars tau
+  in elem i freevars
 
   {- question 3: unification -}
 
 unify :: [Constraint] -> Infer Substitution
-unify constraintList = undefined
-
+unify [] = return substEmpty
+unify constraints =
+  let (c:cs) = reverse constraints
+  in do substs <- unify cs
+        (tau1 :~: tau2) <- return $ apply substs c
+        case tau1 == tau2 of
+          True -> return $ substs
+          False -> case (tau1, tau2) of 
+                (TyConst _ _, TyVar t2) -> unify $ (tau2 :~: tau1):cs
+                (TyConst c1 ss, TyConst c2 ts) | c1 == c2 && length ss == length ts -> unify $ (zipWith (:~:) ss ts) ++ cs
+                                               | otherwise -> throwError $ Can'tMatch tau1 tau2
+                (TyVar t1, _) | (occurs t1 tau2) -> throwError $ InfiniteType t1 tau2
+                              | otherwise -> return $ substCompose (substInit t1 tau2) substs
+              
   {- question 4: type inference -}
 
 infer :: TypeEnv -> Exp -> Infer MonoTy

@@ -1,0 +1,16 @@
+/Users/jiatuoz/Documents/Haskell/cs421-mp6/mps/mp6-type-infer/mp6-type-infer.cabal:
+  hash: d46f9a19425266e72f7d69e981e16da56ce1b81222b46d2dce377f10d9dae1c5
+/Users/jiatuoz/Documents/Haskell/cs421-mp6/mps/mp6-type-infer/src/Parser.y:
+  hash: 77a29220ecc62c9d3b9897a25866ab39bb9fa47ddfb43c3e0f94938f320966e6
+/Users/jiatuoz/Documents/Haskell/cs421-mp6/mps/mp6-type-infer/package.yaml:
+  hash: 9ffca671590a1031123022cd1d32033f479afb59894caf3d27f2717a5bf75736
+? /Users/jiatuoz/Documents/Haskell/cs421-mp6/mps/mp6-type-infer/.stack-work/dist/x86_64-osx/Cabal-3.4.1.0/build/autogen/Paths_mp6_type_infer.hs
+: hash: a711be0881e69a35b60b959c142be0c4605863902dc7ac5feccce618b89f6ed9
+/Users/jiatuoz/.stack/programs/x86_64-osx/ghc-9.0.2/lib/ghc-9.0.2/lib/x86_64-osx-ghc-9.0.2/rts-1.0.2/include/ghcversion.h:
+  hash: 3b6c0f16983344ce12525816947d892da98bc96f17a664531494f515b9356c81
+? /Users/jiatuoz/Documents/Haskell/cs421-mp6/mps/mp6-type-infer/.stack-work/dist/x86_64-osx/Cabal-3.4.1.0/build/autogen/cabal_macros.h
+: hash: 885cbffb4d14c36040713dd9d6f5e1229bfab58e91b0ed3f7c3f2831f465068b
+/Users/jiatuoz/Documents/Haskell/cs421-mp6/mps/mp6-type-infer/src/Infer.hs:
+  hash: 01da8f0e6c336d1d0e67b5def6cb803b577e290b6f71d5c1b8f3881484bbb87d
+/Users/jiatuoz/Documents/Haskell/cs421-mp6/mps/mp6-type-infer/src/Common.hs:
+  hash: 9bca8c5bf53b6279532711f01fb3c5ceb6fc43a5211edf736aad57f982091de3
